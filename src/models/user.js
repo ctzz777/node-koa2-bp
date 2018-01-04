@@ -23,7 +23,7 @@ User.pre('save', function(next) {
 });
 
 User.methods.validatePassword = function (password) {
-  const user = this
+  const user = this;
 
   return new Promise((resolve, reject) => {
     bcrypt.compare(password, user.password, (err, isMatch) => {
