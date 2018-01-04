@@ -1,9 +1,9 @@
 {
-    "development": {
-        "JWT_KEY": "3345678",
-        "JWT_TIMEOUT": "10000",
-        "SESSION_KEY": "55688",
-        "SERVER_PORT": "3001",
-        "DB_URI": "mongodb://localhost/test"
-    }
+  "development": {
+    "JWT_KEY": "3345678",
+    "JWT_TIMEOUT": "10000",
+    "SESSION_KEY": "55688",
+    "SERVER_PORT": "3001",
+    "DB_URI": "mongodb://localhost/test"
+  }
 }
