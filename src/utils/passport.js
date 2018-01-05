@@ -8,7 +8,7 @@ opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 opts.secretOrKey = process.env.JWT_KEY;
 
 passport.serializeUser((user, done) => {
-  done(null, user._id);
+  done(null, user.id);
 });
 
 passport.deserializeUser(async (id, done) => {
@@ -41,7 +41,7 @@ passport.use(new LocalStrategy(async (username, password, done) => {
 // jwt
 passport.use(new JwtStrategy(opts, async (jwtPayload, done) => {
   try {
-    const user = await User.findById(jwtPayload._id);
+    const user = await User.findById(jwtPayload.id);
     if (user) {
       return done(null, user);
     } else {
