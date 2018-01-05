@@ -1,5 +1,6 @@
 require('./config/config');
-const Koa = require('koa')
+const http = require('http');
+const Koa = require('koa');
 const bodyParser = require('koa-bodyparser');
 const static = require('koa-static');
 const session = require('koa-session');
@@ -10,6 +11,8 @@ const passport = require('./utils/passport');
 const router = require('./routes/index');
 const errorMiddleware = require('./middlewares/error');
 const app = new Koa();
+const server = http.createServer(app.callback());
+const io = require('socket.io')(server);
 const staticPath = './public';
 
 app.keys = [process.env.SESSION_KEY];
@@ -23,4 +26,4 @@ app.use(passport.session());
 app.use(router.routes());
 app.use(router.allowedMethods());
 
-app.listen(process.env.SERVER_PORT);
+server.listen(process.env.SERVER_PORT);
