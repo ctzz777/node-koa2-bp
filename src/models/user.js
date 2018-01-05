@@ -38,7 +38,7 @@ User.methods.validatePassword = function (password) {
 User.methods.generateToken = function () {
   const user = this;
 
-  return jwt.sign({ _id: user._id }, process.env.JWT_KEY, { expiresIn: process.env.JWT_TIMEOUT });
+  return jwt.sign({ id: user.id }, process.env.JWT_KEY, { expiresIn: process.env.JWT_TIMEOUT });
 };
 
 module.exports = mongoose.model('User', User, 'User');
