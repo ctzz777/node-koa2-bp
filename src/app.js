@@ -12,9 +12,10 @@ const router = require('./routes/index');
 const errorMiddleware = require('./middlewares/error');
 const app = new Koa();
 const server = http.createServer(app.callback());
-const io = require('socket.io')(server);
+const io = require('./utils/socket')(server);
 const staticPath = './public';
 
+app.context.io = io;
 app.keys = [process.env.SESSION_KEY];
 app.use(logger());
 app.use(static(path.join(__dirname, staticPath)));
