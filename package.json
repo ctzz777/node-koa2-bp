@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node src/app.js",
-    "test": "export NODE_ENV=test || \"SET NODE_ENV=test\" && mocha src/**/*.test.js"
+    "test": "export NODE_ENV=test || \"SET NODE_ENV=test\" && mocha tests/**/*.test.js"
   },
   "author": "ctzz777",
   "license": "MIT",
@@ -24,5 +24,10 @@
     "passport-jwt": "^3.0.1",
     "passport-local": "^1.0.0",
     "socket.io": "^2.0.4"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^4.1.0",
+    "supertest": "^3.0.0"
   }
 }
